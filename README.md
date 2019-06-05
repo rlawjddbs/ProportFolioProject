@@ -12,3 +12,7 @@
 
 #### 사용자 로그인 - 예외처리 및 세션 처리를 통한 관계 유지
 ![](https://github.com/rlawjddbs/ProportFolioProject/blob/master/readme_source/01_login.gif)
+
+
+#### 사용자 회원가입 - 아이디(PK)와 이메일(UNIQUE) 중복 예외처리
+![](https://github.com/rlawjddbs/ProportFolioProject/blob/master/readme_source/02_joinmember.gif)
