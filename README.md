@@ -5,3 +5,5 @@
 - 사용자 웹 페이지 UI/Interaction 디자인
 - 사용자의 로그인, 로그아웃, 회원 가입 및 탈퇴, 정보 수정, 아이디 찾기, 비밀번호 찾기, 세션처리 작성
 - 사용자의 문의사항 게시판 글 읽기, 쓰기, 수정, 삭제, 검색기능 작성
+
+![](https://github.com/rlawjddbs/SSangyoungTheaterProject/blob/master/readme_resource/common/slicer.png)
