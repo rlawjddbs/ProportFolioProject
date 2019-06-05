@@ -10,7 +10,7 @@
 
 ### 시연자료
 
-#### 사용자 로그인 - 예외처리 및 세션 처리를 통한 관계 유지
+#### 사용자 로그인 - 예외처리 및 세션처리를 통한 관계 유지
 ![](https://github.com/rlawjddbs/ProportFolioProject/blob/master/readme_source/01_login.gif)
    &nbsp;
 
