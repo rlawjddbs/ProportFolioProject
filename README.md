@@ -22,11 +22,11 @@
 ![](https://github.com/rlawjddbs/ProportFolioProject/blob/master/readme_source/03_find_id_and_passwd.gif)
 <br />
 
-#### 사용자 프로필 사진 변경 - jpg, png, gif 이미지 형식만 가능하도록 예외처리
+#### 사용자 프로필 사진 변경 - Ajax, MultipartRequest, jquery.form.js 를 활용한 비동기식 처리
 ![](https://github.com/rlawjddbs/ProportFolioProject/blob/master/readme_source/04_change_profile_image.gif)
 <br />
 
-#### 사용자 비밀번호 변경 - 기존 비밀번호 검증 후 변경
-![](https://github.com/rlawjddbs/ProportFolioProject/blob/master/readme_source/04_change_profile_image.gif)
+#### 사용자 회원정보 수정 - Ajax 사용, 수정을 원하는 정보만을 빠르게 편집하도록 작성
+![](https://github.com/rlawjddbs/ProportFolioProject/blob/master/readme_source/05_change_profile_image.gif)
 <br />
 
