@@ -7,3 +7,8 @@
 - 사용자의 문의사항 게시판 글 읽기, 쓰기, 수정, 삭제, 검색기능 작성
 
 ![](https://github.com/rlawjddbs/SSangyoungTheaterProject/blob/master/readme_resource/common/slicer.png)
+
+### 시연자료
+
+#### 사용자 로그인 - 예외처리 및 세션 처리를 통한 관계 유지
+![](https://github.com/rlawjddbs/ProportFolioProject/blob/master/readme_source/01_login.gif)
