@@ -33,3 +33,7 @@
 #### 사용자 비밀번호 변경 - Ajax 사용, 기존 비밀번호 검증 후 변경
 ![](https://github.com/rlawjddbs/ProportFolioProject/blob/master/readme_source/06_change_passwd.gif)
 <br />
+
+#### 사용자 회원 탈퇴 - 안내 사항 확인 체크 후 비밀번호를 입력하면 회원 탈퇴 처리 (동일 아이디로 재가입 불가능)
+![](https://github.com/rlawjddbs/ProportFolioProject/blob/master/readme_source/07_leave_member.gif)
+<br />
