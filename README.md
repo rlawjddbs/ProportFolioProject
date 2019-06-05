@@ -12,8 +12,21 @@
 
 #### 사용자 로그인 - 예외처리 및 세션 처리를 통한 관계 유지
 ![](https://github.com/rlawjddbs/ProportFolioProject/blob/master/readme_source/01_login.gif)
-
-
+<br />
 
 #### 사용자 회원가입 - 아이디(PK)와 이메일(UNIQUE) 중복 예외처리
 ![](https://github.com/rlawjddbs/ProportFolioProject/blob/master/readme_source/02_joinmember.gif)
+<br />
+
+#### 사용자 아이디&비밀번호 찾기 - 비밀번호 찾기시 이메일로 임시 비밀번호 전송
+![](https://github.com/rlawjddbs/ProportFolioProject/blob/master/readme_source/03_find_id_and_passwd.gif)
+<br />
+
+#### 사용자 프로필 사진 변경 - jpg, png, gif 이미지 형식만 가능하도록 예외처리
+![](https://github.com/rlawjddbs/ProportFolioProject/blob/master/readme_source/04_change_profile_image.gif)
+<br />
+
+#### 사용자 비밀번호 변경 - 기존 비밀번호 검증 후 변경
+![](https://github.com/rlawjddbs/ProportFolioProject/blob/master/readme_source/04_change_profile_image.gif)
+<br />
+
