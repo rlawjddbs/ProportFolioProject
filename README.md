@@ -41,3 +41,19 @@
 #### 사용자 문의 사항 작성 - 로그인 상태에서 작성 가능
 ![](https://github.com/rlawjddbs/ProportFolioProject/blob/master/readme_source/08_write_inquiry.gif)
 <br />
+
+#### 사용자 문의 사항 수정 - 관리자 답변 전, 본인이 작성한 글만 수정 가능
+![](https://github.com/rlawjddbs/ProportFolioProject/blob/master/readme_source/09_edit_inquiry.gif)
+<br />
+
+#### 사용자 문의 사항 답변시 - 글 수정 및 삭제 불가
+![](https://github.com/rlawjddbs/ProportFolioProject/blob/master/readme_source/10_is_recoment.gif)
+<br />
+
+#### 사용자 문의 사항 답변시 - 글 수정 및 삭제 불가
+![](https://github.com/rlawjddbs/ProportFolioProject/blob/master/readme_source/11_edit_inquiry.gif)
+<br />
+
+#### 사용자 문의 사항 검색 - 내용으로, 제목+내용으로, ID로 검색 가능
+![](https://github.com/rlawjddbs/ProportFolioProject/blob/master/readme_source/12_search_inquiry.gif)
+<br />
