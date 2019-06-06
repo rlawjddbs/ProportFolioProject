@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+  <!-- Query문을 정의 
+  		namespace: XML내에서 중복된 id를 사용할 수 있도록 구분하는 것.
+  		패키지와 비슷한 용도, 주고 싶은 이름값 주기
+  -->
+<mapper namespace="kr.co.dbslab.user.inquiry">
+
+	<resultMap type="kr.co.dbslab.user.inquiry.domain.Inquiry" id="inquiryResult">
+		<result column="num" property="num" />
+		<result column="views" property="views" />
+		<result column="subject" property="subject" />
+		<result column="user_id" property="user_id" />
+		<result column="w_date" property="w_date" />
+		<result column="status" property="status" />
+		<result column="condition" property="condition" />
+		<result column="keyword" property="keyword" />
+	</resultMap>
+	
+	<resultMap type="kr.co.dbslab.user.inquiry.domain.InquiryDetail" id="inquiryDetailResult">
+		<result column="subject" property="subject" />
+		<result column="num" property="num" />
+		<result column="user_id" property="user_id" />
+		<result column="w_date" property="w_date" />
+		<result column="user_contents" property="user_contents" />
+		<result column="admin_id" property="admin_id" />
+		<result column="r_date" property="r_date" />
+		<result column="r_contents" property="r_contents" />
+		<result column="status" property="status" />
+		<result column="views" property="views" />
+		<result column="profile_pic" property="profile_pic" />
+	</resultMap>
+	
+	
+	<select id="inquiryTotalCnt" resultType="int" parameterType="kr.co.dbslab.user.inquiry.vo.InquiryVO">
+		select count(*) cnt from inquiry_board
+		<if test="condition != null and keyword != null">
+			<choose>
+				<when test='condition.equals("contents")'>
+					where user_contents like concat('%',#{keyword},'%')
+				</when>
+				<when test='condition.equals("sbjContents")'>
+					where subject like concat('%',#{keyword},'%') or user_contents like concat('%',#{keyword},'%')
+				</when>
+				<when test='condition.equals("id")'>
+					where user_id like concat('%',#{keyword},'%')
+				</when>
+			</choose>
+		</if>
+	</select>
+	
+	<select id="inquiryList" resultMap="inquiryResult" parameterType="kr.co.dbslab.user.inquiry.vo.InquiryVO">
+		select num, user_id, subject, user_contents, status, w_date, views, admin_id, r_contents, r_date
+		from 	(select num, user_id, subject, user_contents, status, date_format(w_date, '%y-%m-%d') w_date, views, admin_id, r_contents, r_date, 
+				row_number() OVER(ORDER BY num desc) R_NUM
+				FROM inquiry_board
+				<if test="condition != null and keyword != null">
+					<choose>
+						<when test='condition.equals("contents")'>
+							where user_contents like concat('%',#{keyword},'%')
+						</when>
+						<when test='condition.equals("sbjContents")'>
+							where subject like concat('%',#{keyword},'%') or user_contents like concat('%',#{keyword},'%')
+						</when>
+						<when test='condition.equals("id")'>
+							where user_id like concat('%',#{keyword},'%')
+						</when>
+					</choose>
+				</if>
+				) abc
+		where r_num between ${ startNum } and ${ endNum }
+	</select>
+	
+	<select id="inquiryDetail" resultMap="inquiryDetailResult" parameterType="String">
+		select ib.subject, ib.num, ib.user_id, date_format(ib.w_date,'%y-%m-%d %H:%i:%s') w_date,
+		ib.user_contents, ib.admin_id, ib.r_date, ib.r_contents, ib.status, ib.views, m.profile_pic
+		from inquiry_board ib, member m
+		where ib.num=#{ num } and ib.user_id = m.user_id
+	</select>
+	
+	<update id="inquiryEdit" parameterType="kr.co.dbslab.user.inquiry.vo.InquiryUpdateVO">
+		update inquiry_board set subject = #{ subject }, user_contents = #{ user_contents }, w_date = now() where num = #{ num }
+	</update>
+	
+	<delete id="inquiryDelete" parameterType="kr.co.dbslab.user.inquiry.vo.InquiryDeleteVO">
+		delete from inquiry_board where num = #{ num }
+	</delete>
+	
+	<insert id="inquiryInsert" parameterType="kr.co.dbslab.user.inquiry.vo.InquiryWriteVO" useGeneratedKeys="true" keyProperty="num">
+		insert into inquiry_board( user_id, subject, user_contents)
+		values( #{ user_id }, #{ subject }, #{ user_contents } )
+	</insert>
+	
+	<select id="getViews" parameterType="int" resultType="String">
+		select views from inquiry_board
+		where num = #{ num }
+	</select>
+	
+	<update id="increseViews" parameterType="map">
+		update inquiry_board set views = #{ views }
+		where num = #{ num }
+	</update>
+	
+</mapper>

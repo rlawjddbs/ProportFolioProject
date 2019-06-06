@@ -1,0 +1,389 @@
+@import
+	url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap')
+	;
+html, body{
+	width:100%;
+	overflow-x:hidden;
+}
+body {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.container{
+	max-width:100%;
+	overflow-x:hidden;
+}
+.container-fluid{
+	max-width:100%;
+	
+}
+#header {
+	position: relative;
+}
+#serviceCenter[aria-expanded="true"]{
+	background-color:orange;
+}
+#header>#navbarParent {
+	position: absolute;
+	width: 100%;
+	margin-bottom: 0;
+	background-color: rgba(0, 0, 0, 0.78);
+	/* border 기본 테두리 색 #e7e7e7 */
+	border: none;
+	/* border-bottom: 1px solid #e7e7e7; */
+	z-index:9999;
+}
+
+/* index.jsp CSS 0610 19:40 김정윤 */
+#searchConditions{
+	padding:20px 0;	
+}
+#searchConditions a{
+	padding-left:10px;
+	padding-right:10px;
+}
+
+#portfolioList{
+	box-shadow:0 0 10px rgba(0, 0, 0, 0.42);
+	padding-top:70px;
+	background-color:#f1f2f6;
+}
+
+#portfolioList > .row > div > div{
+	border-radius:5px;
+	overflow:hidden;
+}
+
+
+/* 스크롤 되기전 nav-bar의 글자색을 흰색으로 */
+#header a {
+	/* 기본 글자색 #777 */
+	color: #fff;
+	transition: background 0.3s;
+	font-weight: bold;
+}
+
+#header .mainMenu > a {
+	border-radius: 500px;
+}
+
+#profileImgWrapperA {
+	padding: 0;
+	padding-left:15px;
+	padding-right:15px;
+	line-height: 50px;
+	display: inline-block;
+}
+
+#profileImgWrapperA>#profileImg {
+	display: inline-block;
+	border-radius: 50%;
+	width:35px;
+	height: 35px;
+	overflow:hidden;
+	vertical-align:middle;
+}
+
+#header .mainMenu>a:focus, #header .mainMenu>a:hover {
+	/* 기본 글자색 #777 */
+	color: #fff;
+	background-color: #3742fa;
+}
+
+#header .dropdown a[aria-expanded="true"]{
+	color:#000;
+}
+
+article .board_title{ float:left; margin:0; line-height:26px; }
+article #seeMyWriting{ float:right; margin:0; line-height:26px; }
+
+#tabHeaderWrap{
+	padding-top:50px;
+	padding-bottom:30px;
+	overflow:hidden;
+}
+
+#condition, #keyword, #searchBtn{ text-align:center; vertical-align: middle; height:40px; font-size:16px; }
+
+#keyword{ height:40px; }
+#searchBtn{ padding-left:20px; padding-right:20px; }
+
+/* #header 내부 centerDiv(핵심 메뉴) center 정렬 */
+@media ( min-width :768px) {
+	#condition{ width: 120px; }
+	#centerDiv {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		float: none;
+	}
+	#navbar-collapse-by-kjy {
+		text-align: center;
+	}
+	/* 드롭 다운 메뉴 #dropdown-menu */
+	#header .dropdown-menu a {
+		color: #000;
+	}
+	#header .dropdown-menu a:hover {
+		color: #000;
+		background-color:#f7f1e3;
+	}
+	.tbCenter{
+		text-align:center;
+	}
+	h4.tbCenter{
+		font-weight:300;
+	}
+} /* media (min-width:768px) */
+
+@media ( max-width :767px) {
+	.container-fluid{
+		overflow-x:hidden;
+	}
+	#navbar-collapse-by-kjy {
+		background-color: rgba(0, 0, 0, 0.52);
+	}
+	#navbar-collapse-by-kjy a:hover {
+		/* color: #000; */
+	}
+	/* nav-bar 프로필 사진이 표시되는 드롭 다운 메뉴 */
+	#profileImgWrapperA {
+		padding: 0 15px;
+		width:100%;
+		line-height: 50px;
+		display: inline-block;
+	}
+	.inquirySubj {
+		font-size:16px !important;
+	}
+	.inquiryUser, #wDate, #inquiryStatus {
+		font-size:14px;
+	}
+	.wDate{
+		text-align:center;
+	}
+	.inquiryStatus{
+		text-align:right;
+	}
+	article #seeMyWriting{ line-height:40px; }
+	#writeInquiryXs{
+		display:inline !important; 
+	}
+	#frm.searchFrm{
+		text-align:center;
+	}
+	#detailP{
+		line-height:1.4em !important;
+	}
+	#imgWrap{
+		width:60px !important;
+		height:60px !important;
+	}
+} /* @media (max-width:767px) */
+
+/* 비 로그인 상태 첫번째 줄(firstRow) */
+#firstRow {
+	padding-top: 70px;
+	padding-bottom: 70px;
+	background: url(../imgs/bg-top.jpg) no-repeat;
+	background-size: cover;
+	/* background-position:50% 0%; */
+	background-position: 50% 50%;
+	/* min-height:600px; */
+}
+/* firstRow 컬러 오버레이 */
+#firstRow::after {
+	content: "";
+	background-color: rgba(0, 0, 0, 0.52);
+}
+
+#firstRow #headCopy {
+	text-align: center;
+	color: #fff;
+	line-height: 1.4em;
+	text-shadow: 0 0 2px #000;
+}
+
+/* 햄버거 메뉴 색상 (기본값 : #888) */
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #fff;
+}
+
+.navbar-default .navbar-toggle:hover {
+	background-color: transparent;
+}
+
+/* 마이 페이지 CSS 190522 17:41 김정윤 */
+#mypageWrap{
+	width:500px;
+}
+
+
+#mypageProfilePic {
+	display: inline-block;
+	border-radius: 50%;
+	margin-top: 90px;
+	width: 20%;
+	border:1px solid #ccc;
+	overflow:hidden;
+}
+
+#changeProfilePicBtn {
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	margin-top:-30px;
+	outline:none;
+}
+
+.mypageRow:nth-of-type(1){
+	border-top:1px solid #ccc;
+	margin-top:20px;
+}
+.mypageRow{
+	padding:10px 0;
+	border-bottom:1px solid #ccc;
+}
+.mypageRow > a{ display:block; }
+.mypageRow > div > h4, .mypageRow > div > p{
+	margin-top:0;
+}
+.glyphiconZone{
+	text-align:right;
+	font-size:24px;	
+	line-height:67px;
+}
+
+
+/* check_pass.jsp CSS 190523 16:14 김정윤 */
+#markupId{
+	margin:0;
+}
+
+#errMsg{
+	color:#ff0000;
+}
+
+/* my_info.jsp CSS 190524 17:38 김정윤 */
+
+#myInfoContainer{
+	padding-top:70px;	
+}
+
+#myInfoContainer .mypageRow label{
+}
+
+#myInfoContainer .mypageRow label{
+	min-width:120px;
+	padding-left:15px;
+	padding-right:15px;
+}
+
+/* 비활성화 된 상태의 form-control 의 테두리 없앰 */
+#myInfoContainer .readOnlyForm{
+	border:none;
+	outline:none;
+}
+#myInfoContainer .chgBtn{
+	margin-top:-5px;	
+}
+
+/* my_info.jsp CSS 190529 14:26 김정윤 */
+#myInfoContainer .inputText{
+	height:34px;
+}
+
+/* join_member.jsp CSS 190525 22:43 김정윤 */
+span.negativeResult{
+	color:#ff4757;
+}
+span.positiveResult{
+	color:#3742fa;
+}
+#myInfoContainer span.msgPadding{
+	padding-left:20px;
+}
+#phone1{
+	text-align-last:center;
+}
+#phone1 > option{
+	text-align:center;
+}
+
+/* leave_member.jsp CSS 190531 12:03 김정윤 */
+#invisible{
+	width:500px;
+	display:none;
+}
+
+/* inquiry_board.jsp CSS 190602 13:30 김정윤 */
+#inquiryBoard{
+	border-radius:5px;
+	overflow:hidden;
+	box-shadow:0 0 5px rgba(0, 0, 0, 0.22);	
+}
+
+#inquiryIndexList div{
+		display:inline-block;
+		padding:0 8px;
+		transition-duration:0.3s;
+		vertical-align: middle;
+		margin:0 3px;
+		box-sizing:border-box;
+		border-radius:50%;
+}
+#inquiryIndexList div:hover{
+	background-color:#3dd3ae;
+	color:#fff;
+}
+
+.btnWrap{
+	display:inline-block;
+	overflow:hidden;
+	position:relative;
+	transition:box-shadow 0.3s;
+	border-radius:5px;
+}
+
+.btnWrap:hover{
+	box-shadow:rgba(27, 156, 252, 0.78);
+}
+.btnWrap:hover .btn{
+	background-color:rgba(27, 156, 252,1.0);
+}
+.btnWrap::before{
+	content:"";
+	width:1px;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:-100%;
+	background-color:white;
+	transition:left 0.7s;
+	cursor:pointer;
+	transform:skewX(-40deg);
+	box-shadow:0 0 20px 40px rgba(255, 255, 255, 0.78);
+}
+
+#writeInquiry{ cursor:pointer; float:right; }
+input.btnKjy {
+		padding-left:20px; 
+		padding-right:20px; 
+		height:40px; 
+		background-color:#5e5e5e; 
+		color:white; 
+		font-weight:bold; 
+		border:0; 
+		border-radius:5px; 
+		font-size:17px;
+		transition:background-color 0.3s;
+		font-weight:400;
+	}
+#searchWrap{
+	display:inline-block;	
+}
+/* inquiry_detail.jsp CSS 190605 13:51 김정윤 */
+#answerSubject{
+	margin-top:0;
+	margin-bottom:10px;
+}

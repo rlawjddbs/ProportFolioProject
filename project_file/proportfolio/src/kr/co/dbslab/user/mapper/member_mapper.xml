@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="kr.co.dbslab">
+
+	<select id="selectMemberId" resultType="String" parameterType="String">
+		select user_id from member where user_id = #{ user_id }
+	</select>
+
+	<select id="selectMemberEmail" resultType="String" parameterType="String">
+		select email from member where email = #{ email }
+	</select>
+
+	<select id="selectMemberForLogin" resultType="String" parameterType="kr.co.dbslab.user.member.vo.LoginVO">
+		select user_id
+		from member 
+		where user_id = #{ user_id } and password = sha2(#{ password }, 256) and isdropped = 'N'
+	</select>
+	
+	<select id="selectMemberInform" resultType="kr.co.dbslab.user.member.domain.Member" parameterType="String">
+		select  user_id, name, email, birth, phone, inputdate, profile_pic
+		from member
+		where user_id = #{ user_id }
+	</select>
+
+	<insert id="insertMember" parameterType="kr.co.dbslab.user.member.vo.MemberVO">
+		insert into member(user_id, password, name, email, birth, phone)
+		values(#{ user_id }, sha2(#{ password }, 256), #{ name }, #{ email }, #{ birth }, #{ phone })
+	</insert>
+	
+	<select id="findMemberId" parameterType="kr.co.dbslab.user.member.vo.FindMemberIdVO" resultType="String">
+		select user_id 
+		from member 
+		where name=#{ name } and birth = concat(#{ birthYear },'-',#{ birthMonth },'-',#{ birthDate }) and phone = concat(#{ phone1 },'-',#{ phone2 },'-',#{ phone3 })
+	</select>
+	
+	<select id="findMemberPasswd" parameterType="kr.co.dbslab.user.member.vo.FindMemberPasswdVO" resultType="String">
+		select user_id
+		from member
+		where user_id = #{ user_id } and name = #{ name } and email = #{ email }
+	</select>
+	
+	<update id="updateProfilePic" parameterType="map">
+		update member set profile_pic = #{ profile_pic } where user_id = #{ user_id } 
+	</update>
+	
+	<update id="updateMemberName" parameterType="map">
+		update member set name = #{ name }
+		where user_id = #{ user_id } 
+	</update>
+	
+	<update id="updateMemberEmail" parameterType="map">
+		update member set email = #{ email }
+		where user_id = #{ user_id } 
+	</update>
+
+	<update id="updateMemberBirth" parameterType="map">
+		update member set birth = #{ birth }
+		where user_id = #{ user_id } 
+	</update>
+
+	<update id="updateMemberPhone" parameterType="map">
+		update member set phone = #{ phone }
+		where user_id = #{ user_id } 
+	</update>
+	
+	<update id="updateMemberPasswd" parameterType="kr.co.dbslab.user.member.vo.ChgPasswdVO">
+		update member set password = sha2(#{ chgPasswd }, 256)
+		where user_id = #{ user_id } and password = sha2(#{ currentPasswd}, 256)
+	</update>
+	
+	<update id="updateMemberTempPasswd" parameterType="map">
+		update member set password = sha2(#{ password }, 256)
+		where user_id = #{ user_id }
+	</update>
+	
+	<update id="updateMemberIsdropped" parameterType="map">
+		update member set isdropped = 'Y'
+		where user_id = #{ user_id } and password = sha2(#{ password }, 256)
+	</update>
+
+</mapper>

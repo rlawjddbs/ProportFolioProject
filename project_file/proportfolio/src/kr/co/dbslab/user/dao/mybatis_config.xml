@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- MyBatis의 환경설정(연동할 DB설정())을 수행 설정 정보를 properties에 넣고 설정하거나, 설정 정보를 직접 
+	HardCoding 하는 방법 두 가지가 있다. -->
+<configuration>
+	<properties resource="properties/database.properties"></properties>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${userid}" />
+				<property name="password" value="${userpass}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- 쿼리문을 가진 XML을 연결 -->
+	<mappers>
+		<!-- <mapper resource="day0403/mapper/dept_mapper.xml" /> -->
+		<mapper resource="kr/co/dbslab/user/mapper/member_mapper.xml"></mapper>
+		<mapper resource="kr/co/dbslab/user/mapper/inquiry_mapper.xml"></mapper>
+	</mappers>
+	
+</configuration>
